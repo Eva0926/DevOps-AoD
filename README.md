@@ -46,12 +46,12 @@ $ cdk synth
 ```
 $ cdk deploy sagemaker-stack
 ```
+After deploy the sagemaker stack, you need to put the sagemaker code in the sagemaker notebook, and push the changes to the repo.
+
 ```
 $ cdk deploy pipeline-stack
 ```
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
+before deploy stack, make sure you have training data (sagemaker-code/staging/data/train/iris.csv) in the s3 {data_bucket}/input.
 
 ## Useful commands
 
