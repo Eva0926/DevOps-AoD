@@ -42,7 +42,13 @@ At this point you can now synthesize the CloudFormation template for this code.
 ```
 $ cdk synth
 ```
-
+# DevOps-AoD
+```
+$ cdk deploy sagemaker-stack
+```
+```
+$ cdk deploy pipeline-stack
+```
 To add additional dependencies, for example other CDK libraries, just add
 them to your `setup.py` file and rerun the `pip install -r requirements.txt`
 command.
@@ -56,4 +62,3 @@ command.
  * `cdk docs`        open CDK documentation
 
 Enjoy!
-# DevOps-AoD
