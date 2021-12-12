@@ -118,4 +118,4 @@ The stack is complete, and any changes you make to your code will trigger the pi
 ```
 Training job names must be unique within an AWS account and region, and a training job with this name already exists
 ```
- So if you want to rerun the traning job again, please update line 90 and 104, from `-training-job` with a new traning job name.
+ So if you want to rerun the traning job again, please update line 90 and 104 in pipeline.py, from `training-job` with a new traning job name.
