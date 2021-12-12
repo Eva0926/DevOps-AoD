@@ -7,7 +7,7 @@ To clone the repo here: https://github.com/Eva0926/DevOps-AoD.git
 
 Prerequisites:
 please make sure if you installed the followings:
-1. AWS CLI [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+1. AWS CLI [Getting started with the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\
 2. AWS Account and User:
 Open a terminal window and use aws configure to set up your environment. Type the access key ID and secret key and choose a default region (you can use us-east-1, eu-west-1, us-west-2 for example).
 ```Python
@@ -25,47 +25,47 @@ Default output format [None]: <leave blank>
 
 
 ## CDK Stacks
-There are 2 stacks:
-1. pipeline-stack
-Create following resources:
-a. ECR Repository
-`{ACCOUNT_ID}ecr-repo`: ecr repository to push docker container into
-b. data, code and model s3 buckets
-`{construct_id}-pipeline-bucket`: code bucket
-`{construct_id}-model-bucket`: model bucket
-`{construct_id}-data-bucket`: data bucket
-c. code_pipeline
-`pipeline-stack-PipelineStack`: code pipeline with 3 stages: Source, Build, Deploy
-d. step function
-`StateMachine` : stepfunction with 4 stages: TrainingJob, CreateModel, CreateEndpointconfig, CreateEndpoint
-e. endpoint_config
-`pipeline-stack-endpoint-config`
-f. endpoint
-`pipeline-stack-endpoint`
+There are 2 stacks:\
+1. pipeline-stack\
+Create following resources:\
+a. ECR Repository\
+`{ACCOUNT_ID}ecr-repo`: ecr repository to push docker container into\
+b. data, code and model s3 buckets\
+`{construct_id}-pipeline-bucket`: code bucket\
+`{construct_id}-model-bucket`: model bucket\
+`{construct_id}-data-bucket`: data bucket\
+c. code_pipeline\
+`pipeline-stack-PipelineStack`: code pipeline with 3 stages: Source, Build, Deploy\
+d. step function\
+`StateMachine` : stepfunction with 4 stages: TrainingJob, CreateModel, CreateEndpointconfig, CreateEndpoint\
+e. endpoint_config\
+`pipeline-stack-endpoint-config`\
+f. endpoint\
+`pipeline-stack-endpoint`\
 
-2. sagemaker-stack
-Create following resources:
-a. sagemaker execution role
-`sagemaker-stack-CDKSageMakerExecutionRole`
-b. CodeCommit repository
-`sagemaker-stack-CDKDefaultRepository`: it stores the code for the model
-c. SageMaker Notebook
-`sagemaker-stack-CDKNotebookInstance`
+2. sagemaker-stack\
+Create following resources:\
+a. sagemaker execution role\
+`sagemaker-stack-CDKSageMakerExecutionRole`\
+b. CodeCommit repository\
+`sagemaker-stack-CDKDefaultRepository`: it stores the code for the model\
+c. SageMaker Notebook\
+`sagemaker-stack-CDKNotebookInstance`\
 
 ## Architecture 
-![architecture](architecture.png)
+![architecture](architecture.png)\
 
 ## Directory Files
 **DEVOPS-AOD** - Directory containing all code associated with the project. 
 - **README.md** - Markdown readme file (i.e. this file).  
-- **aod_workshop** - Containing all code associated with the stacks.
-​      \* **pipeline.py**  - Code for pipeline stack
-​      \* **sagemaker_stack.py** - Code for sagemaker stack
-​      \* **step_function_stack.py**  - Code for step function stack
+- **aod_workshop** - Containing all code associated with the stacks.\
+​      \* **pipeline.py**  - Code for pipeline stack\
+​      \* **sagemaker_stack.py** - Code for sagemaker stack\
+​      \* **step_function_stack.py**  - Code for step function stack\
 - **requirements.txt** - Packages required.
-- **sagemaker-code** - The code and traning data for the model.
-      \* **data** - The data for training
-      \* **model-code** - The code for the model building
+- **sagemaker-code** - The code and traning data for the model.\
+      \* **data** - The data for training\
+      \* **model-code** - The code for the model building\
 - **architeture.png** - The architecture diagram
 
 ## Deployment Instructions
