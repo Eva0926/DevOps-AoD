@@ -111,4 +111,11 @@ $ cdk deploy pipeline-stack
 ```
 It will create the CodePipeline with a Source, Build and Deploy stages. Before deploy stage, make sure you have training data (sagemaker-code/staging/data/train/iris.csv) in the s3 bucket {data_bucket}/input.
 
+The stack is complete, and any changes you make to your code will trigger the pipeline and train/deploy a new model!
 
+## Note
+- The the Step Functions training job need to use a unique job name for each run. You may encounter the error:
+```
+Training job names must be unique within an AWS account and region, and a training job with this name already exists
+```
+ So if you want to rerun the traning job again, please update line 90 and 104, from `-training-job` with a new traning job name.
