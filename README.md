@@ -25,7 +25,7 @@ Default output format [None]: <leave blank>
 
 
 ## CDK Stacks
-There are 2 stacks:\
+There are 2 stacks:
 1. pipeline-stack\
 Create following resources:\
 a. ECR Repository\
@@ -41,7 +41,7 @@ d. step function\
 e. endpoint_config\
 `pipeline-stack-endpoint-config`\
 f. endpoint\
-`pipeline-stack-endpoint`\
+`pipeline-stack-endpoint`
 
 2. sagemaker-stack\
 Create following resources:\
@@ -50,10 +50,10 @@ a. sagemaker execution role\
 b. CodeCommit repository\
 `sagemaker-stack-CDKDefaultRepository`: it stores the code for the model\
 c. SageMaker Notebook\
-`sagemaker-stack-CDKNotebookInstance`\
+`sagemaker-stack-CDKNotebookInstance`
 
 ## Architecture 
-![architecture](architecture.png)\
+![architecture](architecture.png)
 
 ## Directory Files
 **DEVOPS-AOD** - Directory containing all code associated with the project. 
@@ -61,11 +61,11 @@ c. SageMaker Notebook\
 - **aod_workshop** - Containing all code associated with the stacks.\
 ​      \* **pipeline.py**  - Code for pipeline stack\
 ​      \* **sagemaker_stack.py** - Code for sagemaker stack\
-​      \* **step_function_stack.py**  - Code for step function stack\
+​      \* **step_function_stack.py**  - Code for step function stack
 - **requirements.txt** - Packages required.
 - **sagemaker-code** - The code and traning data for the model.\
       \* **data** - The data for training\
-      \* **model-code** - The code for the model building\
+      \* **model-code** - The code for the model building
 - **architeture.png** - The architecture diagram
 
 ## Deployment Instructions
