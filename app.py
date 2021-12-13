@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-
+import time
 # For consistency with TypeScript code, `cdk` is the preferred import name for
 # the CDK's core module.  The following line also imports it as `core` for use
 # with examples from the CDK Developer's Guide, which are in the process of
@@ -12,9 +12,11 @@ from aod_workshop.sagemaker_stack import SagemakerStack
 from aod_workshop.step_function_stack import StepfunctionStack
 
 app = core.App()
+time = int(time.time())
+id = f'{time}'
 sagemaker_stack = SagemakerStack(app, "sagemaker-stack")
 pipeline_stack = PipelineStack(
-    app, "pipeline-stack",
+    app, construct_id = "pipeline-stack", id = id,
     repo_name=sagemaker_stack.code_repository.repository_name)
 
 app.synth()

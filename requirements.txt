@@ -55,7 +55,7 @@ aws-cdk.core==1.94.1
 aws-cdk.custom-resources==1.94.1
 aws-cdk.cx-api==1.94.1
 aws-cdk.region-info==1.94.1
-cattrs==1.0.0
+cattrs
 constructs==3.3.69
 jsii==1.26.0
 publication==0.0.3

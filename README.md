@@ -104,18 +104,16 @@ Deploy the sagemaker stack
 $ cdk deploy sagemaker-stack
 ```
 After deploy the sagemaker stack, you will create a repo in the CodeCommit, and also create a sagemaker notebook in the sagemaker. A sample working code is present in the sagemaker-code file. you need to put the code in the sagemaker notebook, make sure the folder (staging) is in home directory (`SageMaker/{your-repo-name}`), and push the changes to the repo in CodeCommit.
+So the repo should look like this:
 
+![repo_example](repo-example.png)
 Deploy the pipeline stack
 ```
 $ cdk deploy pipeline-stack
 ```
 It will create the CodePipeline with a Source, Build and Deploy stages. Before deploy stage, make sure you have training data (sagemaker-code/staging/data/train/iris.csv) in the s3 bucket {data_bucket}/input.
+So the data bucket should look like this:
 
+![bucket_example](data_bucket_example.png)
 The stack is complete, and any changes you make to your code will trigger the pipeline and train/deploy a new model!
 
-## Note
-- The the Step Functions training job need to use a unique job name for each run. You may encounter the error:
-```
-Training job names must be unique within an AWS account and region, and a training job with this name already exists
-```
- So if you want to rerun the traning job again, please update line 90 and 104 in pipeline.py, from `training-job` to a new traning job name.
