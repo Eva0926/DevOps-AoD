@@ -29,19 +29,19 @@ There are 2 stacks:
 1. pipeline-stack\
 Create following resources:\
 a. ECR Repository\
-`{ACCOUNT_ID}ecr-repo`: ecr repository to push docker container into\
+`{construct_id}-{ACCOUNT_ID}-ecr-repo`: ecr repository to push docker container into\
 b. data, code and model s3 buckets\
-`{construct_id}-pipeline-bucket`: code bucket\
-`{construct_id}-model-bucket`: model bucket\
-`{construct_id}-data-bucket`: data bucket\
+`{construct_id}-{ACCOUNT_ID}-pipeline-bucket`: code bucket\
+`{construct_id}-{ACCOUNT_ID}-model-bucket`: model bucket\
+`{construct_id}-{ACCOUNT_ID}-data-bucket`: data bucket\
 c. code_pipeline\
-`pipeline-stack-PipelineStack`: code pipeline with 3 stages: Source, Build, Deploy\
+`{construct_id}-{ACCOUNT_ID}-PipelineStack`: code pipeline with 3 stages: Source, Build, Deploy\
 d. step function\
 `StateMachine` : stepfunction with 4 stages: TrainingJob, CreateModel, CreateEndpointconfig, CreateEndpoint\
 e. endpoint_config\
-`pipeline-stack-endpoint-config`\
+`{construct_id}-{ACCOUNT_ID}-endpoint-config`\
 f. endpoint\
-`pipeline-stack-endpoint`
+`{construct_id}-{ACCOUNT_ID}-endpoint`
 
 2. sagemaker-stack\
 Create following resources:\
