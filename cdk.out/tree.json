@@ -202,7 +202,7 @@
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::ECR::Repository",
                   "aws:cdk:cloudformation:props": {
-                    "repositoryName": "375874625992ecr-repo"
+                    "repositoryName": "pipeline-stack-375874625992-ecr-repo"
                   }
                 },
                 "constructInfo": {
@@ -226,7 +226,7 @@
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "pipeline-stack-pipeline-bucket"
+                    "bucketName": "pipeline-stack-375874625992-pipeline-bucket"
                   }
                 },
                 "constructInfo": {
@@ -258,7 +258,7 @@
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "pipeline-stack-model-bucket"
+                    "bucketName": "pipeline-stack-375874625992-model-bucket"
                   }
                 },
                 "constructInfo": {
@@ -290,7 +290,7 @@
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
                   "aws:cdk:cloudformation:props": {
-                    "bucketName": "pipeline-stack-data-bucket"
+                    "bucketName": "pipeline-stack-375874625992-data-bucket"
                   }
                 },
                 "constructInfo": {
@@ -1037,7 +1037,7 @@
                                               "Arn"
                                             ]
                                           },
-                                          "/output/pipeline-stack-training-job-v5/output/model.tar.gz*"
+                                          "/output/pipeline-stack-375874625992-1639473225-training-job/output/model.tar.gz*"
                                         ]
                                       ]
                                     }
@@ -1172,7 +1172,7 @@
                                         {
                                           "Ref": "AWS::AccountId"
                                         },
-                                        ":training-job/pipeline-stack-training-job-v5*"
+                                        ":training-job/pipeline-stack-375874625992-1639473225-training-job*"
                                       ]
                                     ]
                                   }
@@ -1244,7 +1244,7 @@
                                         {
                                           "Ref": "AWS::AccountId"
                                         },
-                                        ":model/pipeline-stack-model*"
+                                        ":model/pipeline-stack-375874625992-1639473225-model*"
                                       ]
                                     ]
                                   }
@@ -1283,7 +1283,7 @@
                                         {
                                           "Ref": "AWS::AccountId"
                                         },
-                                        ":endpoint-config/pipeline-stack-endpoint-config"
+                                        ":endpoint-config/pipeline-stack-375874625992-endpoint-config"
                                       ]
                                     ]
                                   }
@@ -1308,7 +1308,7 @@
                                           {
                                             "Ref": "AWS::AccountId"
                                           },
-                                          ":endpoint/pipeline-stack-endpoint"
+                                          ":endpoint/pipeline-stack-375874625992-endpoint"
                                         ]
                                       ]
                                     },
@@ -1328,7 +1328,7 @@
                                           {
                                             "Ref": "AWS::AccountId"
                                           },
-                                          ":endpoint-config/pipeline-stack-endpoint-config"
+                                          ":endpoint-config/pipeline-stack-375874625992-endpoint-config"
                                         ]
                                       ]
                                     }
@@ -1396,7 +1396,7 @@
                           {
                             "Ref": "AWS::Partition"
                           },
-                          ":states:::sagemaker:createTrainingJob.sync\",\"Parameters\":{\"TrainingJobName\":\"pipeline-stack-training-job-v5\",\"RoleArn\":\"",
+                          ":states:::sagemaker:createTrainingJob.sync\",\"Parameters\":{\"TrainingJobName\":\"pipeline-stack-375874625992-1639473225-training-job\",\"RoleArn\":\"",
                           {
                             "Fn::GetAtt": [
                               "TrainingJobSagemakerRole706C4C57",
@@ -1480,7 +1480,7 @@
                               "Arn"
                             ]
                           },
-                          "\",\"ModelName\":\"pipeline-stack-model\",\"PrimaryContainer\":{\"Image\":\"",
+                          "\",\"ModelName\":\"pipeline-stack-375874625992-1639473225-model\",\"PrimaryContainer\":{\"Image\":\"",
                           {
                             "Fn::Select": [
                               4,
@@ -1534,15 +1534,15 @@
                           {
                             "Ref": "ModelBucketB33D855B"
                           },
-                          "/output/pipeline-stack-training-job-v5/output/model.tar.gz\"}}},\"CreateEndpointConfig\":{\"Next\":\"CreateEndpoint\",\"Type\":\"Task\",\"Resource\":\"arn:",
+                          "/output/pipeline-stack-375874625992-1639473225-training-job/output/model.tar.gz\"}}},\"CreateEndpointConfig\":{\"Next\":\"CreateEndpoint\",\"Type\":\"Task\",\"Resource\":\"arn:",
                           {
                             "Ref": "AWS::Partition"
                           },
-                          ":states:::sagemaker:createEndpointConfig\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-endpoint-config\",\"ProductionVariants\":[{\"InitialInstanceCount\":1,\"InstanceType\":\"ml.m4.xlarge\",\"ModelName\":\"pipeline-stack-model\",\"VariantName\":\"prod\",\"InitialVariantWeight\":1}]}},\"CreateEndpoint\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"arn:",
+                          ":states:::sagemaker:createEndpointConfig\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-375874625992-endpoint-config\",\"ProductionVariants\":[{\"InitialInstanceCount\":1,\"InstanceType\":\"ml.m4.xlarge\",\"ModelName\":\"pipeline-stack-375874625992-1639473225-model\",\"VariantName\":\"prod\",\"InitialVariantWeight\":1}]}},\"CreateEndpoint\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"arn:",
                           {
                             "Ref": "AWS::Partition"
                           },
-                          ":states:::sagemaker:createEndpoint\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-endpoint-config\",\"EndpointName\":\"pipeline-stack-endpoint\"}}},\"TimeoutSeconds\":600}"
+                          ":states:::sagemaker:createEndpoint\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-375874625992-endpoint-config\",\"EndpointName\":\"pipeline-stack-375874625992-endpoint\"}}},\"TimeoutSeconds\":600}"
                         ]
                       ]
                     }
@@ -1809,7 +1809,7 @@
                         "Ref": "PipelineBucketB967BD35"
                       }
                     },
-                    "name": "pipeline-stack-PipelineStack"
+                    "name": "pipeline-stack-375874625992-PipelineStack"
                   }
                 },
                 "constructInfo": {

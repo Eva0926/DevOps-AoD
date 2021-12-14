@@ -3,48 +3,48 @@
     "EcrRepoBB83A592": {
       "Type": "AWS::ECR::Repository",
       "Properties": {
-        "RepositoryName": "pipeline-stack-375874625992-ecr-repo"
+        "RepositoryName": "pipeline-stack-1639389586-ecr-repo"
       },
       "UpdateReplacePolicy": "Delete",
       "DeletionPolicy": "Delete",
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/EcrRepo/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/EcrRepo/Resource"
       }
     },
     "PipelineBucketB967BD35": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "pipeline-stack-375874625992-pipeline-bucket"
+        "BucketName": "pipeline-stack-1639389586-pipeline-bucket"
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/PipelineBucket/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/PipelineBucket/Resource"
       }
     },
     "ModelBucketB33D855B": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "pipeline-stack-375874625992-model-bucket"
+        "BucketName": "pipeline-stack-1639389586-model-bucket"
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/ModelBucket/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/ModelBucket/Resource"
       }
     },
     "DataBucketE3889A50": {
       "Type": "AWS::S3::Bucket",
       "Properties": {
-        "BucketName": "pipeline-stack-375874625992-data-bucket"
+        "BucketName": "pipeline-stack-1639389586-data-bucket"
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/DataBucket/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/DataBucket/Resource"
       }
     },
-    "CDKRepopipelinestackPipelineA788DD26EventRule00B216A4": {
+    "CDKRepopipelinestack1639389586Pipeline11BF27CBEventRuleA93153C8": {
       "Type": "AWS::Events::Rule",
       "Properties": {
         "EventPattern": {
@@ -68,7 +68,7 @@
                   {
                     "Ref": "AWS::AccountId"
                   },
-                  ":sagemaker-stack-CDKDefaultRepository"
+                  ":sagemaker-stack-1639389586-CDKDefaultRepository"
                 ]
               ]
             }
@@ -123,7 +123,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CDKRepo/pipelinestackPipelineA788DD26EventRule/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CDKRepo/pipelinestack1639389586Pipeline11BF27CBEventRule/Resource"
       }
     },
     "CdkBuildRoleBE66F777": {
@@ -143,7 +143,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CdkBuild/Role/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CdkBuild/Role/Resource"
       }
     },
     "CdkBuildRoleDefaultPolicyD27F0F5C": {
@@ -320,7 +320,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CdkBuild/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CdkBuild/Role/DefaultPolicy/Resource"
       }
     },
     "CdkBuild455F642E": {
@@ -373,7 +373,7 @@
         "EncryptionKey": "alias/aws/s3"
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CdkBuild/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CdkBuild/Resource"
       }
     },
     "TrainingJobSagemakerRole706C4C57": {
@@ -415,7 +415,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/TrainingJob/SagemakerRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/TrainingJob/SagemakerRole/Resource"
       }
     },
     "TrainingJobSagemakerRoleDefaultPolicy27D782BC": {
@@ -513,7 +513,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/TrainingJob/SagemakerRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/TrainingJob/SagemakerRole/DefaultPolicy/Resource"
       }
     },
     "CreateModelSagemakerRole9AF765A8": {
@@ -555,7 +555,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CreateModel/SagemakerRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CreateModel/SagemakerRole/Resource"
       }
     },
     "CreateModelSagemakerRoleDefaultPolicyFBA9105B": {
@@ -639,7 +639,7 @@
                           "Arn"
                         ]
                       },
-                      "/output/pipeline-stack-375874625992-1639473225-training-job/output/model.tar.gz*"
+                      "/output/pipeline-stack-1639389586-training-job/output/model.tar.gz*"
                     ]
                   ]
                 }
@@ -656,7 +656,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CreateModel/SagemakerRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/CreateModel/SagemakerRole/DefaultPolicy/Resource"
       }
     },
     "StateMachineRoleB840431D": {
@@ -687,7 +687,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/StateMachine/Role/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/StateMachine/Role/Resource"
       }
     },
     "StateMachineRoleDefaultPolicyDF1E6607": {
@@ -718,7 +718,7 @@
                     {
                       "Ref": "AWS::AccountId"
                     },
-                    ":training-job/pipeline-stack-375874625992-1639473225-training-job*"
+                    ":training-job/pipeline-stack-1639389586-training-job*"
                   ]
                 ]
               }
@@ -790,7 +790,7 @@
                     {
                       "Ref": "AWS::AccountId"
                     },
-                    ":model/pipeline-stack-375874625992-1639473225-model*"
+                    ":model/pipeline-stack-1639389586-model*"
                   ]
                 ]
               }
@@ -829,7 +829,7 @@
                     {
                       "Ref": "AWS::AccountId"
                     },
-                    ":endpoint-config/pipeline-stack-375874625992-endpoint-config"
+                    ":endpoint-config/pipeline-stack-1639389586-endpoint-config"
                   ]
                 ]
               }
@@ -854,7 +854,7 @@
                       {
                         "Ref": "AWS::AccountId"
                       },
-                      ":endpoint/pipeline-stack-375874625992-endpoint"
+                      ":endpoint/pipeline-stack-1639389586-endpoint"
                     ]
                   ]
                 },
@@ -874,7 +874,7 @@
                       {
                         "Ref": "AWS::AccountId"
                       },
-                      ":endpoint-config/pipeline-stack-375874625992-endpoint-config"
+                      ":endpoint-config/pipeline-stack-1639389586-endpoint-config"
                     ]
                   ]
                 }
@@ -905,7 +905,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/StateMachine/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/StateMachine/Role/DefaultPolicy/Resource"
       }
     },
     "StateMachine2E01A3A5": {
@@ -925,7 +925,7 @@
               {
                 "Ref": "AWS::Partition"
               },
-              ":states:::sagemaker:createTrainingJob.sync\",\"Parameters\":{\"TrainingJobName\":\"pipeline-stack-375874625992-1639473225-training-job\",\"RoleArn\":\"",
+              ":states:::sagemaker:createTrainingJob.sync\",\"Parameters\":{\"TrainingJobName\":\"pipeline-stack-1639389586-training-job\",\"RoleArn\":\"",
               {
                 "Fn::GetAtt": [
                   "TrainingJobSagemakerRole706C4C57",
@@ -1009,7 +1009,7 @@
                   "Arn"
                 ]
               },
-              "\",\"ModelName\":\"pipeline-stack-375874625992-1639473225-model\",\"PrimaryContainer\":{\"Image\":\"",
+              "\",\"ModelName\":\"pipeline-stack-1639389586-model\",\"PrimaryContainer\":{\"Image\":\"",
               {
                 "Fn::Select": [
                   4,
@@ -1063,15 +1063,15 @@
               {
                 "Ref": "ModelBucketB33D855B"
               },
-              "/output/pipeline-stack-375874625992-1639473225-training-job/output/model.tar.gz\"}}},\"CreateEndpointConfig\":{\"Next\":\"CreateEndpoint\",\"Type\":\"Task\",\"Resource\":\"arn:",
+              "/output/pipeline-stack-1639389586-training-job/output/model.tar.gz\"}}},\"CreateEndpointConfig\":{\"Next\":\"CreateEndpoint\",\"Type\":\"Task\",\"Resource\":\"arn:",
               {
                 "Ref": "AWS::Partition"
               },
-              ":states:::sagemaker:createEndpointConfig\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-375874625992-endpoint-config\",\"ProductionVariants\":[{\"InitialInstanceCount\":1,\"InstanceType\":\"ml.m4.xlarge\",\"ModelName\":\"pipeline-stack-375874625992-1639473225-model\",\"VariantName\":\"prod\",\"InitialVariantWeight\":1}]}},\"CreateEndpoint\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"arn:",
+              ":states:::sagemaker:createEndpointConfig\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-1639389586-endpoint-config\",\"ProductionVariants\":[{\"InitialInstanceCount\":1,\"InstanceType\":\"ml.m4.xlarge\",\"ModelName\":\"pipeline-stack-1639389586-model\",\"VariantName\":\"prod\",\"InitialVariantWeight\":1}]}},\"CreateEndpoint\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"arn:",
               {
                 "Ref": "AWS::Partition"
               },
-              ":states:::sagemaker:createEndpoint\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-375874625992-endpoint-config\",\"EndpointName\":\"pipeline-stack-375874625992-endpoint\"}}},\"TimeoutSeconds\":600}"
+              ":states:::sagemaker:createEndpoint\",\"Parameters\":{\"EndpointConfigName\":\"pipeline-stack-1639389586-endpoint-config\",\"EndpointName\":\"pipeline-stack-1639389586-endpoint\"}}},\"TimeoutSeconds\":600}"
             ]
           ]
         }
@@ -1081,7 +1081,7 @@
         "StateMachineRoleB840431D"
       ],
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/StateMachine/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/StateMachine/Resource"
       }
     },
     "PipelineRoleD68726F7": {
@@ -1101,7 +1101,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Role/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Role/Resource"
       }
     },
     "PipelineRoleDefaultPolicyC7A05455": {
@@ -1183,7 +1183,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Role/DefaultPolicy/Resource"
       }
     },
     "PipelineC660917D": {
@@ -1206,7 +1206,7 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "RepositoryName": "sagemaker-stack-CDKDefaultRepository",
+                  "RepositoryName": "sagemaker-stack-1639389586-CDKDefaultRepository",
                   "BranchName": "master",
                   "PollForSourceChanges": false
                 },
@@ -1297,14 +1297,14 @@
           },
           "Type": "S3"
         },
-        "Name": "pipeline-stack-375874625992-PipelineStack"
+        "Name": "pipeline-stack-1639389586-PipelineStack"
       },
       "DependsOn": [
         "PipelineRoleDefaultPolicyC7A05455",
         "PipelineRoleD68726F7"
       ],
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Resource"
       }
     },
     "PipelineSourceCDKSourceCodePipelineActionRoleB27B01DA": {
@@ -1339,7 +1339,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Source/CDK_Source/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Source/CDK_Source/CodePipelineActionRole/Resource"
       }
     },
     "PipelineSourceCDKSourceCodePipelineActionRoleDefaultPolicyFB186A44": {
@@ -1405,7 +1405,7 @@
                     {
                       "Ref": "AWS::AccountId"
                     },
-                    ":sagemaker-stack-CDKDefaultRepository"
+                    ":sagemaker-stack-1639389586-CDKDefaultRepository"
                   ]
                 ]
               }
@@ -1421,7 +1421,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Source/CDK_Source/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Source/CDK_Source/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "PipelineEventsRole46BEEA7C": {
@@ -1441,7 +1441,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/EventsRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/EventsRole/Resource"
       }
     },
     "PipelineEventsRoleDefaultPolicyFF4FCCE0": {
@@ -1487,7 +1487,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/EventsRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/EventsRole/DefaultPolicy/Resource"
       }
     },
     "PipelineBuildCDKBuildCodePipelineActionRole15F4B424": {
@@ -1522,7 +1522,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Build/CDK_Build/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Build/CDK_Build/CodePipelineActionRole/Resource"
       }
     },
     "PipelineBuildCDKBuildCodePipelineActionRoleDefaultPolicyE350F3F9": {
@@ -1555,7 +1555,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Build/CDK_Build/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Build/CDK_Build/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "PipelineDeployCDKDeployCodePipelineActionRoleD89672EE": {
@@ -1590,7 +1590,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Deploy/CDK_Deploy/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Deploy/CDK_Deploy/CodePipelineActionRole/Resource"
       }
     },
     "PipelineDeployCDKDeployCodePipelineActionRoleDefaultPolicyC1671B14": {
@@ -1657,7 +1657,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/Pipeline/Deploy/CDK_Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "pipeline-stack-1639389586/Pipeline/Deploy/CDK_Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "CDKMetadata": {
@@ -1666,7 +1666,7 @@
         "Analytics": "v2:deflate64:H4sIAAAAAAAAE3VQy2rDMBD8ltxlhZBSyK3U9FIINU5/QJHXzsaO1kirliD075VllwZDTzv7mtnZnTw8yd3mRX27Qjf9NmiyIMOJle5FScax9ZpFDY681SDK1nx4Hj1P6LGaZhtkJBPFxBVAWxlqGMkhk73P479ZFG4vw6vXPWSiGUUBX2DYpT0/ZNIpRqGpgbPHoZGhwhEGNFBZuoLOuwuMAtUtbdKyOcWKBtRZekZJlmFsvdHToa5g5fqkdlIdHFUPtrSgGD6tQoOme6ezWLWO6ZJhXXwzzUhoOH2gxe6/7ko7vzgRKn1JdqYTH/PZ87iY/bOdrSw4xiiqO1/IbPfyIJ83V4dYWG8YbyDrOf4A1Y15A98BAAA="
       },
       "Metadata": {
-        "aws:cdk:path": "pipeline-stack/CDKMetadata/Default"
+        "aws:cdk:path": "pipeline-stack-1639389586/CDKMetadata/Default"
       },
       "Condition": "CDKMetadataAvailable"
     }

@@ -17,31 +17,31 @@ REGION = boto3.session.Session().region_name
 ACCOUNT_ID = boto3.client('sts').get_caller_identity()['Account']
 class PipelineStack(core.Stack):
 
-    def __init__(self, scope: core.Construct, construct_id: str, repo_name: str=None,
+    def __init__(self, scope: core.Construct, construct_id: str, id: str,  repo_name: str=None,
                   branch_name: str="master",**kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
         ecr_repo = ecr.Repository(
             self,
             "EcrRepo",
-            repository_name=f"{ACCOUNT_ID}ecr-repo",
+            repository_name=f"{construct_id}-{ACCOUNT_ID}-ecr-repo",
             removal_policy=core.RemovalPolicy.DESTROY,
             )
         code_bucket = s3.Bucket(
             self,
             "PipelineBucket",
-            bucket_name=f"{construct_id}-pipeline-bucket",
+            bucket_name=f"{construct_id}-{ACCOUNT_ID}-pipeline-bucket",
             )
             
         model_bucket = s3.Bucket(
             self,
             "ModelBucket",
-            bucket_name=f"{construct_id}-model-bucket",
+            bucket_name=f"{construct_id}-{ACCOUNT_ID}-model-bucket",
             )
             
         data_bucket = s3.Bucket(
             self,
             "DataBucket",
-            bucket_name=f"{construct_id}-data-bucket",
+            bucket_name=f"{construct_id}-{ACCOUNT_ID}-data-bucket",
             )
         code_repo = codecommit.Repository.from_repository_name(self, "CDKRepo",
                   repo_name)
@@ -87,13 +87,13 @@ class PipelineStack(core.Stack):
             output_data_config=tasks.OutputDataConfig(
                 s3_output_location=tasks.S3Location.from_bucket(bucket=model_bucket, key_prefix="output"),
                 ),
-            training_job_name=f"{construct_id}-training-job-v5",
+            training_job_name=f"{construct_id}-{ACCOUNT_ID}-{id}-training-job",
             integration_pattern=sfn.IntegrationPattern.RUN_JOB,
             )
         model_create_job = tasks.SageMakerCreateModel(
             self,
             "CreateModel",
-            model_name=f"{construct_id}-model",
+            model_name=f"{construct_id}-{ACCOUNT_ID}-{id}-model",
             primary_container=tasks.ContainerDefinition(
                 image=tasks.DockerImage.from_ecr_repository(
                     repository=ecr_repo,
@@ -101,7 +101,7 @@ class PipelineStack(core.Stack):
                     ),
                 model_s3_location=tasks.S3Location.from_bucket(
                     bucket=model_bucket,
-                    key_prefix=f"output/{construct_id}-training-job-v5/output/model.tar.gz"
+                    key_prefix=f"output/{construct_id}-{ACCOUNT_ID}-{id}-training-job/output/model.tar.gz"
                     ),
                 ),
             )
@@ -109,11 +109,11 @@ class PipelineStack(core.Stack):
         endpoint_config_job = tasks.SageMakerCreateEndpointConfig(
             self,
             "CreateEndpointConfig",
-            endpoint_config_name=f"{construct_id}-endpoint-config",
+            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-endpoint-config",
             production_variants =[
                 tasks.ProductionVariant(
                     instance_type=ec2.InstanceType("m4.xlarge"),
-                    model_name=f"{construct_id}-model",
+                    model_name=f"{construct_id}-{ACCOUNT_ID}-{id}-model",
                     initial_instance_count=1,
                     initial_variant_weight=1,
                     variant_name="prod",
@@ -122,8 +122,8 @@ class PipelineStack(core.Stack):
         endpoint_job = tasks.SageMakerCreateEndpoint(
             self,
             "CreateEndpoint",
-            endpoint_config_name=f"{construct_id}-endpoint-config",
-            endpoint_name=f"{construct_id}-endpoint",
+            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-endpoint-config",
+            endpoint_name=f"{construct_id}-{ACCOUNT_ID}-endpoint",
             )
         definition = sfn.Chain.start(training_job) \
             .next(model_create_job) \
@@ -152,7 +152,7 @@ class PipelineStack(core.Stack):
             self,
             "Pipeline",
             artifact_bucket=code_bucket,
-            pipeline_name=f"{construct_id}-PipelineStack",
+            pipeline_name=f"{construct_id}-{ACCOUNT_ID}-PipelineStack",
             stages=[
                 codepipeline.StageProps(stage_name="Source",
                     actions=[
