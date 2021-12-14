@@ -109,7 +109,7 @@ class PipelineStack(core.Stack):
         endpoint_config_job = tasks.SageMakerCreateEndpointConfig(
             self,
             "CreateEndpointConfig",
-            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-endpoint-config",
+            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-{id}-endpoint-config",
             production_variants =[
                 tasks.ProductionVariant(
                     instance_type=ec2.InstanceType("m4.xlarge"),
@@ -122,8 +122,8 @@ class PipelineStack(core.Stack):
         endpoint_job = tasks.SageMakerCreateEndpoint(
             self,
             "CreateEndpoint",
-            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-endpoint-config",
-            endpoint_name=f"{construct_id}-{ACCOUNT_ID}-endpoint",
+            endpoint_config_name=f"{construct_id}-{ACCOUNT_ID}-{id}-endpoint-config",
+            endpoint_name=f"{construct_id}-{ACCOUNT_ID}-{id}-endpoint",
             )
         definition = sfn.Chain.start(training_job) \
             .next(model_create_job) \
