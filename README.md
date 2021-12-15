@@ -60,8 +60,7 @@ c. SageMaker Notebook\
 - **README.md** - Markdown readme file (i.e. this file).  
 - **aod_workshop** - Containing all code associated with the stacks.\
 ​      \* **pipeline.py**  - Code for pipeline stack\
-​      \* **sagemaker_stack.py** - Code for sagemaker stack\
-​      \* **step_function_stack.py**  - Code for step function stack
+​      \* **sagemaker_stack.py** - Code for sagemaker stack.
 - **requirements.txt** - Packages required.
 - **sagemaker-code** - The code and traning data for the model.\
       \* **data** - The data for training\
